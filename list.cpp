@@ -19,6 +19,7 @@ element::~element() = default;
 
 
 List::List() {
+    std::cout << "Inicjalizuję listę!" << std::endl;
     this->head = nullptr;
     this->tail = nullptr;
 }
@@ -53,6 +54,7 @@ List::~List() {
 }
 
 void List::removeList() {
+    std::cout << "Usuwam listę!" << std::endl;
     delete this;
 }
 

@@ -24,7 +24,6 @@ int main() {
     auto fb = new filebuf();
     fb->open("file.txt", ios::in);
     istream plik(fb);
-    cout << fb->is_open();
     List *list = new List();
     while (!plik.eof()) {
         ignoreWhiteMarks(plik);
@@ -42,5 +41,6 @@ int main() {
 
     list->showRightToLeft();
     list->showLeftToRight();
+    list->removeList();
     return 0;
 }
