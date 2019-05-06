@@ -64,3 +64,13 @@ void List::showRightToLeft() {
     }
     std::cout << valueToString(x->value) + "." << std::endl;
 }
+
+void List::showLeftToRight() {
+    element *x = head;
+    while (x->next != nullptr) {
+        std::cout << valueToString(x->value) + ", ";
+        x = x->next;
+    }
+    std::cout << valueToString(x->value) + "." << std::endl;
+
+}

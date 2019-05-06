@@ -41,5 +41,6 @@ int main() {
     fb->close();
 
     list->showRightToLeft();
+    list->showLeftToRight();
     return 0;
 }
