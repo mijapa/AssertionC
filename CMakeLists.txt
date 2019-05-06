@@ -4,4 +4,4 @@ project(Asercje)
 set(CMAKE_CXX_STANDARD 14)
 
 
-add_executable(Asercje main.cpp list.cpp toStringConverter.cpp toStringConverter.h)
+add_executable(Asercje main.cpp list.cpp)

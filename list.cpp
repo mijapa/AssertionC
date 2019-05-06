@@ -1,14 +1,13 @@
 #include <iostream>
 #include <sstream>
 #include  "list.h"
-#include "toStringConverter.h"
 
-//template<class T>
-//std::string valueToString(T value) {
-//    std::ostringstream oss;
-//    oss << value;
-//    return oss.str();
-//}
+template<class T>
+std::string valueToString(T value) {
+    std::ostringstream oss;
+    oss << value;
+    return oss.str();
+}
 
 element::element(int v) {
     this->value = v;
@@ -60,9 +59,8 @@ void List::removeList() {
 void List::showRightToLeft() {
     element *x = tail;
     while (x->previous != nullptr) {
-        std::string str = valueToString<int>(x->value);
-        std::cout << str + ", ";
+        std::cout << valueToString(x->value) + ", ";
         x = x->previous;
     }
-    std::cout << x->value + "." << std::endl;
+    std::cout << valueToString(x->value) + "." << std::endl;
 }
