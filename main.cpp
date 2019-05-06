@@ -2,31 +2,39 @@
 #include <fstream>
 #include <string>
 #include "list.h"
+
+#define NDEBUG
 #include <cassert>
 
 
 using namespace std;
 
-int ignoreWhiteMarks(istream &in) {
-    int howMany = 0;
-    while (in.peek() == 10 || in.peek() == 32)
-        in.ignore();
-    return howMany;
-}
-
-int main() {
-    int value;
+int main(int argc, char *argv[]) {
+    string filename = argv[1];
+    double min = atof(argv[2]);
+    double max = atof(argv[3]);
+    double value;
     string str;
     auto fb = new filebuf();
-    fb->open("file.txt", ios::in);
+    fb->open(filename, ios::in);
+    assert(fb->is_open());
     istream file(fb);
     List *list = new List();
+    assert(list != nullptr);
     while (!file.eof()) {
-        file >> value;
-        list->add(value);
+        if (isdigit(file.peek())) {
+            file >> value;
+            assert(value >= min);
+            assert(value <= max);
+            if (value >= min && value <= max)
+                list->add(value);
+            else cout << "poza zakresem" << endl;
+        } else {
+            cout << "nie liczba" << endl;
+            file.ignore();
+        }
     }
     fb->close();
-
     list->showRightToLeft();
     list->showLeftToRight();
     list->removeList();

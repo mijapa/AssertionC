@@ -2,6 +2,10 @@
 #include <sstream>
 #include  "list.h"
 
+#define NDEBUG
+
+#include <cassert>
+
 template<class T>
 std::string valueToString(T value) {
     std::ostringstream oss;
@@ -9,7 +13,7 @@ std::string valueToString(T value) {
     return oss.str();
 }
 
-element::element(int v) {
+element::element(double v) {
     this->value = v;
     this->next = nullptr;
     this->previous = nullptr;
@@ -24,8 +28,9 @@ List::List() {
     this->tail = nullptr;
 }
 
-element *List::add(int a) {
+element *List::add(double a) {
     auto *temp = new element(a);
+    assert(temp != nullptr);
     if (this->tail == nullptr) {//empty list
         temp->next = nullptr;
         temp->previous = nullptr;

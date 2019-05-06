@@ -3,11 +3,11 @@
 
 
 struct element {
-    int value;
+    double value;
     element *next;
     element *previous;
 
-    explicit element(int v);
+    explicit element(double v);
 
     ~element();
 };
@@ -22,7 +22,7 @@ public:
 
     virtual ~List();
 
-    element *add(int a);
+    element *add(double a);
 
     void removeList();
 
