@@ -21,9 +21,9 @@ int main(int argc, char *argv[]) {
         cout << "Podany zakres jest nieprawidłowy, kończę działanie!";
         return 1;
     }
-    assert(*p == 0);
-    double max = strtod(argv[3], &p);
 
+    double max = strtod(argv[3], &p);
+    assert(*p == 0);
     if (*p) {// conversion failed because the input wasn't a number
         cout << "Podany zakres jest nieprawidłowy, kończę działanie!";
         return 1;
